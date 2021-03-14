@@ -15,8 +15,8 @@ function SubjectList(props: SubjectListProps) {
       {loading
         ? <ActivityIndicator color="red" />
         : courses.map(course => (
-            <Pressable onPress={() => navigate('SubjectSurvey', { subjectId: course.id })}>
-              <S.Subject key={course.code} course={course}  />
+            <Pressable key={course.code} onPress={() => navigate('SubjectSurvey', { subjectId: course.id })}>
+              <S.Subject course={course}  />
             </Pressable>
           ))
       }
