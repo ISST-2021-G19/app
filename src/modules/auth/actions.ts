@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import uniApi, { Profile } from 'edoc/lib/UniApi'
 
 interface LoginThunkArg {

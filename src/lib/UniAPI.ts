@@ -11,6 +11,7 @@ interface Profile {
   name: string
   surname: string
   email: string
+  avatar: string | null
 }
 
 function createUniAPIClient() {
@@ -29,6 +30,7 @@ function createUniAPIClient() {
         name: 'Juan José',
         surname: 'Herrero Barbosa',
         email: 'juan.hbarbosa@alumnos.upm.es',
+        avatar: 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png',
       }
     },
 
@@ -93,6 +95,10 @@ function createUniAPIClient() {
         },
       ]
     },
+
+    async validateProfessorCode(code: string): Promise<void> {
+      await new Promise(resolve => setTimeout(resolve, Math.random() * 1000));
+    }
   }
 }
 

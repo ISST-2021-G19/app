@@ -1,9 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-
-import { Stack } from 'edoc/modules/navigation'
+import { NavigationContainer, Stack } from 'edoc/modules/navigation'
 import { AuthProvider } from 'edoc/modules/auth'
 import { SubjectListScreen } from 'edoc/modules/subjectList'
 import { SubjectSurveyScreen } from 'edoc/modules/subjectSurvey'

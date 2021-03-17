@@ -11,7 +11,8 @@ function SubjectCard(props: SubjectCardProps) {
   const { course, ...otherProps } = props
   return (
     <S.Container {...otherProps}>
-      <S.DebugText>{JSON.stringify(course, null, 2)}</S.DebugText>
+      <S.DebugText>{course.name}</S.DebugText>
+      <S.DebugText>{course.code}</S.DebugText>
     </S.Container>
 )
 }
