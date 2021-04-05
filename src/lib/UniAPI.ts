@@ -8,10 +8,14 @@ interface Course {
 }
 
 interface Profile {
+  id: string
   name: string
   surname: string
   email: string
   avatar: string | null
+}
+
+interface Professor extends Profile {  
 }
 
 function createUniAPIClient() {
@@ -27,6 +31,7 @@ function createUniAPIClient() {
 
       await new Promise(resolve => setTimeout(resolve, Math.random() * 1000));
       return {
+        id: '123',
         name: 'Juan José',
         surname: 'Herrero Barbosa',
         email: 'juan.hbarbosa@alumnos.upm.es',
@@ -92,6 +97,23 @@ function createUniAPIClient() {
           name: 'Ing de Sistemas y Servicios Telematicos',
           type: 'O',
           group: 'TST 42.2',
+        },
+      ]
+    },
+
+    async professorsForCourse(courseId: string): Promise<Professor[]> {
+      await new Promise(resolve => setTimeout(resolve, Math.random() * 1000));
+      return [
+        {
+          id: 'abc123',
+          name: 'Manuel',
+          surname: 'Sierra',
+          email: 'manuel@upm.es',
+          avatar: null,
+        },
+        {
+          id: 'asdf456',
+          name: 'Pepe'
         },
       ]
     },
