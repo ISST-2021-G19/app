@@ -112,8 +112,11 @@ function createUniAPIClient() {
           avatar: null,
         },
         {
-          id: 'asdf456',
-          name: 'Pepe'
+          id: 'asdf123',
+          name: 'Jose Ramon',
+          surname: 'Montejo Garay',
+          email: 'garay@upm.es',
+          avatar: null,
         },
       ]
     },
