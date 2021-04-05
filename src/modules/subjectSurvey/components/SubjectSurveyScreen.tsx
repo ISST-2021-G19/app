@@ -3,9 +3,9 @@ import { useRoute } from "@react-navigation/core"
 import { Text, View } from "react-native"
 
 function SubjectSurveyScreen() {
-  const { params } = useRoute<any>()
+    const { params } = useRoute<any>()
 
-  return <View><Text>{params?.subjectId ?? 'nothing'}</Text></View>
+    return <View><Text>subject: {params?.subjectId ?? 'nothing'}</Text></View>
 }
 
 export { SubjectSurveyScreen }
