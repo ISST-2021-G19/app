@@ -11,12 +11,11 @@ function SubjectCard(props: SubjectCardProps) {
   const { course, ...otherProps } = props
   return (
     <S.Container {...otherProps}>
-      <S.DebugText>{course.name}</S.DebugText>
-      <S.DebugText>{course.code}</S.DebugText>
+      <S.CourseText>{course.name} ({course.code})</S.CourseText>
+      <S.DebugText>Grupo:{course.group}</S.DebugText>
     </S.Container>
 )
 }
-
 export default SubjectCard
 export { SubjectCard }
 export type { SubjectCardProps }
