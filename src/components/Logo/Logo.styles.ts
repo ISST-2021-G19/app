@@ -5,10 +5,10 @@ export const Container = styled.View`
   align-items: center;
 `
 
-export const EDocText = styled.Text`
-  font-size: 24px;
-  color: #555;
-`
+export const eDocImage = styled.Image.attrs({
+  source: require('./eDoc.png'),
+  resizeMode: 'contain',
+})``
 
 export const Separator = styled.View`
   background-color: #555;
