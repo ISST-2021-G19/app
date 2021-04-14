@@ -1,3 +1,5 @@
+import { useImperativeHandle } from "react";
+
 interface Course {
   id: string
   name: string
@@ -7,10 +9,15 @@ interface Course {
   group: string
 }
 
+
 interface Profile {
   name: string
   surname: string
   email: string
+}
+
+interface Professor extends Profile {
+  courses: string[]
 }
 
 function createUniAPIClient() {
@@ -93,6 +100,73 @@ function createUniAPIClient() {
         },
       ]
     },
+
+    async enrolledProfessors(params: {subjectId: string}): Promise<Professor[]> {
+      await new Promise(resolve => setTimeout(resolve, Math.random() * 1000));
+      return [
+        {
+          name: 'Belén',
+          surname: 'Galocha',
+          email: 'bgalocha@upm.es',
+          courses: ['95000013','95000037'],
+        },
+        {
+          name: 'Manuel',
+          surname: 'Sierra',
+          email: 'manuelsierra@upm.es',
+          courses: ['95000030','95000013'],
+
+        },
+        {
+          name: 'Santiago',
+          surname: 'Pavón',
+          email: 'santipavon@upm.es',
+          courses: ['95000053', '95000057'],
+
+        },
+        {
+          name: 'Joaquín',
+          surname: 'Salvachua',
+          email: 'jsalvachua@upm.es',
+          courses: ['95000027', '95000057'],
+
+        },
+        {
+          name: 'Jesús',
+          surname: 'Grajal',
+          email: 'jesusgrajal@upm.es',
+          courses: ['95000030', '95000036'],
+
+        },
+        {
+          name: 'Mareca',
+          surname: 'Gonzalez',
+          email: 'marecagon@upm.es',
+          courses: ['95000027', '95000030'],
+
+        },
+        {
+          name: 'Tomás',
+          surname: 'Robles',
+          email: 'tomasrobles@upm.es',
+          courses: ['95000037','95000036'],
+        },
+        {
+          name: 'Juan Carlos',
+          surname: 'Yelmo',
+          email: 'jcarlosyelmo@upm.es',
+          courses: ['95000053','95000036'],
+        },
+        {
+          name: 'Victor',
+          surname: 'Villagra',
+          email: 'victorvillagra@upm.es',
+          courses: ['95000053','95000036'],
+        },
+
+      ]
+    },
+    
   }
 }
 
@@ -102,6 +176,7 @@ export default createUniAPIClient()
 export { createUniAPIClient }
 export type { 
   Course,
+  Professor,
   Profile,
   UniAPIClient,
 }
