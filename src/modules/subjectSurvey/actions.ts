@@ -1,15 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import uniApi, { Profile } from 'edoc/lib/UniApi'
+import uniApi, { Professor }  from 'edoc/lib/UniApi'
 
-interface ValidateProfessorCodeThunkArg {
-  code: string
-}
-
-const validateProfessorCode = createAsyncThunk<void, ValidateProfessorCodeThunkArg>(
-  'survey/validateProfessorCode',
-  async ({ code }) => {
-    await uniApi.validateProfessorCode(code)
+interface FetchProfessorsParams{ 
+  subjectId: string 
+} 
+const fetchProfessors = createAsyncThunk<Professor[],FetchProfessorsParams>(
+  'subjecSurvey/fetchProfessors',
+  async (params) => {
+    const professors = await uniApi.enrolledProfessors(params)
+    return professors
   },
 )
 
-export { validateProfessorCode }
+export {  fetchProfessors }

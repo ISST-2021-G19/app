@@ -1,12 +1,8 @@
 import React from 'react'
-import { useRoute } from "@react-navigation/core"
-import { Text, View } from "react-native"
-import QuestionScreen from './QuestionScreen'
+import SubjectSurvey from './SubjectSurvey';
 
 function SubjectSurveyScreen() {
-  const { params } = useRoute<any>()
-
-  return <QuestionScreen></QuestionScreen>
+  return <SubjectSurvey />
 }
 
 export { SubjectSurveyScreen }
