@@ -33,9 +33,7 @@ export function ProfessorList(props: ProfessorListProps) {
         <Pressable
           key={professor.name}
           onPress={handlePickProfessor(professor)}>
-          <S.ProfessorCard>
-            <S.ProfessorName>{professor.name}</S.ProfessorName>
-          </S.ProfessorCard>
+          <S.Professor professor={professor} />
         </Pressable>
       ))}
     </S.Container>

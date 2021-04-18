@@ -13,7 +13,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <AuthProvider>
-          <Stack.Navigator>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="SubjectList" component={SubjectListScreen} />
             <Stack.Screen name="SubjectSurvey" component={SubjectSurveyScreen} />
           </Stack.Navigator>

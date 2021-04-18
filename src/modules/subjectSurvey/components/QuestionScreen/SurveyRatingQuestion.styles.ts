@@ -1,4 +1,4 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 import { Button as BaseButton } from 'edoc/components'
 
 export const Container = styled.View``
@@ -13,4 +13,5 @@ export const ButtonsContainer = styled.View``
 
 export const Button = styled(BaseButton)<{ active?: boolean }>`
   margin-bottom: 8px;
+  ${props => props.active && css`background-color: lightgreen;`}
 `

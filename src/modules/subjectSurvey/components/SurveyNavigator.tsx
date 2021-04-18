@@ -10,7 +10,7 @@ const Stack = createStackNavigator()
 
 export function SurveyNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="ProfessorsList" component={ProfessorsListScreen} />
       <Stack.Screen
         name="Question"

@@ -41,6 +41,7 @@ const initialState: State = {
 const reducer = createReducer<State>(initialState, builder =>
   builder
   .addCase(A.fetchSubjectSurveyData.pending, state => {
+    Object.assign(state, initialState)
     state.isLoading = true
   })
   .addCase(A.fetchSubjectSurveyData.fulfilled, (state, action) => {

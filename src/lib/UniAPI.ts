@@ -16,6 +16,7 @@ interface Profile {
 }
 
 interface Professor extends Profile {
+  code: string
   courses: string[]
 }
 
@@ -129,6 +130,7 @@ function createUniAPIClient() {
     async professors(params: {subjectId: string}): Promise<Professor[]> {
       return [
         {
+          code: '00001',
           name: 'Belén',
           surname: 'Galocha',
           email: 'bgalocha@upm.es',
@@ -136,6 +138,7 @@ function createUniAPIClient() {
           courses: ['95000013','95000037'],
         },
         {
+          code: '00002',
           name: 'Manuel',
           surname: 'Sierra',
           email: 'manuelsierra@upm.es',
@@ -144,6 +147,7 @@ function createUniAPIClient() {
 
         },
         {
+          code: '00003',
           name: 'Santiago',
           surname: 'Pavón',
           email: 'santipavon@upm.es',
@@ -152,6 +156,7 @@ function createUniAPIClient() {
 
         },
         {
+          code: '00004',
           name: 'Joaquín',
           surname: 'Salvachua',
           email: 'jsalvachua@upm.es',
@@ -160,6 +165,7 @@ function createUniAPIClient() {
 
         },
         {
+          code: '00005',
           name: 'Jesús',
           surname: 'Grajal',
           email: 'jesusgrajal@upm.es',
@@ -168,6 +174,7 @@ function createUniAPIClient() {
 
         },
         {
+          code: '00006',
           name: 'Mareca',
           surname: 'Gonzalez',
           email: 'marecagon@upm.es',
@@ -176,6 +183,7 @@ function createUniAPIClient() {
 
         },
         {
+          code: '00007',
           name: 'Tomás',
           surname: 'Robles',
           email: 'tomasrobles@upm.es',
@@ -183,6 +191,7 @@ function createUniAPIClient() {
           courses: ['95000037','95000036'],
         },
         {
+          code: '00008',
           name: 'Juan Carlos',
           surname: 'Yelmo',
           email: 'jcarlosyelmo@upm.es',
@@ -190,6 +199,7 @@ function createUniAPIClient() {
           courses: ['95000053','95000036'],
         },
         {
+          code: '00009',
           name: 'Victor',
           surname: 'Villagra',
           email: 'victorvillagra@upm.es',
@@ -201,12 +211,17 @@ function createUniAPIClient() {
     },
     
     async professorTraits(params: {subjectId: string}): Promise<ProfessorTrait[]> {
-      await new Promise(resolve => setTimeout(resolve, Math.random() * 1000));
       return [
-        { id: '1', label: 'bueno en la pizarra' },
-        { id: '2', label: 'buenos apuntes' },
-        { id: '3', label: 'bueno en tutorias' },
-        { id: '4', label: 'chistoso' },
+        {id: 't01', label: 'cercano' },
+        {id: 't02', label: 'impuntual' },
+        {id: 't03', label: 'accesible para tutorías' },
+        {id: 't04', label: 'clases amenas' },
+        {id: 't05', label: 'desorganizado' },
+        {id: 't06', label: 'se prepara las clases' },
+        {id: 't07', label: 'se pasa de la hora' },
+        {id: 't08', label: 'clases poco dinámicas' },
+        {id: 't09', label: 'buenos apuntes' },
+        {id: 't10', label: 'poco material de estudio' },
       ]
     },
 

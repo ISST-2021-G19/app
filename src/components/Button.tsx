@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 
 import { ActivityIndicator, PressableProps } from 'react-native'
 
@@ -8,6 +8,7 @@ const StyledPressable = styled.Pressable`
   padding: 8px;
   align-items: center;
   border-radius: 4px;
+  ${props => props.disabled && css`opacity: 0.38;`};
 `
 
 const ButtonText = styled.Text`
