@@ -12,10 +12,15 @@ export const Container = styled.View`
   justify-content: center;
 `
 
-export const LoginBox = styled.View``
+export const LoginBox = styled.View`
+  min-width: 250px;
+`
 
 export const Logo = styled(BaseLogo)`
-  margin-bottom: 40px;
+  margin-bottom: 24px;
+  width: 100px;
+  height: 100px;
+  align-self: center;
 `
 
 export const Field = styled(BaseField)`

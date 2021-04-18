@@ -12,7 +12,7 @@ function SubjectCard(props: SubjectCardProps) {
   return (
     <S.Container {...otherProps}>
       <S.CourseText>{course.name} ({course.code})</S.CourseText>
-      <S.DebugText>Grupo:{course.group}</S.DebugText>
+      <S.DebugText>Grupo: {course.group}</S.DebugText>
     </S.Container>
 )
 }

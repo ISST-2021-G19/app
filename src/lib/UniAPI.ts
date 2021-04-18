@@ -1,5 +1,3 @@
-import { useImperativeHandle } from "react";
-
 interface Course {
   id: string
   name: string
@@ -21,8 +19,24 @@ interface Professor extends Profile {
   courses: string[]
 }
 
+interface ProfessorTrait {
+  id: string
+  label: string
+}
+
+interface SubjectRating {
+  difficulty: number
+  lessons: number
+  resources: number
+}
+
+interface SurveyQuestion {
+  id: string
+  question: string
+}
+
 function createUniAPIClient() {
-  return {
+  const client = {
     async login(email: string, password: string): Promise<Profile> {
       if (!email || !password) {
         throw new Error('Missing credentials')
@@ -32,7 +46,6 @@ function createUniAPIClient() {
         throw new Error('Unknown email provided')
       }
 
-      await new Promise(resolve => setTimeout(resolve, Math.random() * 1000));
       return {
         name: 'Juan José',
         surname: 'Herrero Barbosa',
@@ -42,7 +55,6 @@ function createUniAPIClient() {
     },
 
     async enrolledCourses(): Promise<Course[]> {
-      await new Promise(resolve => setTimeout(resolve, Math.random() * 1000));
       return [
         {
           id: '95000013',
@@ -103,8 +115,18 @@ function createUniAPIClient() {
       ]
     },
 
-    async enrolledProfessors(params: {subjectId: string}): Promise<Professor[]> {
-      await new Promise(resolve => setTimeout(resolve, Math.random() * 1000));
+    async subject({ subjectId }: { subjectId: string }): Promise<Course> {
+      const courses = await client.enrolledCourses()
+      const course = courses.find(course => course.id === subjectId)
+
+      if (!course) {
+        throw new Error(`Unknown subject ${subjectId}`)
+      }
+
+      return course
+    },
+
+    async professors(params: {subjectId: string}): Promise<Professor[]> {
       return [
         {
           name: 'Belén',
@@ -178,16 +200,112 @@ function createUniAPIClient() {
       ]
     },
     
+    async professorTraits(params: {subjectId: string}): Promise<ProfessorTrait[]> {
+      await new Promise(resolve => setTimeout(resolve, Math.random() * 1000));
+      return [
+        { id: '1', label: 'bueno en la pizarra' },
+        { id: '2', label: 'buenos apuntes' },
+        { id: '3', label: 'bueno en tutorias' },
+        { id: '4', label: 'chistoso' },
+      ]
+    },
+
+    async subjectRating(params: {subjectId: string}): Promise<SubjectRating> {
+      return {
+        difficulty: 4,
+        lessons: 4,
+        resources: 4,
+      }
+    },
+
+    async surveyQuestions(params: {subjectId: string}): Promise<SurveyQuestion[]> {
+      return [
+        {
+          id: 'qa1',
+          question: 'Las actividades de la asignatura se reparten de manera uniforme durante el semestre.',
+        },
+        {
+          id: 'qa2',
+          question: 'En el desarrollo de esta asignatura no hay solapamientos con los contenidos de otras, ni repeticiones innecesarias.',
+        },
+        {
+          id: 'qa3',
+          question: 'Se han coordinado adecuadamente las clases teóricas y prácticas previstas en el programa.',
+        },
+        {
+          id: 'qa4',
+          question: 'Las prácticas de laboratorio y las actividades complementarias (conferencias, seminarios, visitas de estudio, etc.…) ayudan a la comprensión de la asignatura.',
+        },
+        {
+          id: 'qa5',
+          question: 'Los métodos utilizados para mi evaluación (exámenes, memorias de prácticas, trabajos individuales o de grupo, etc.) son adecuados para el tipo de actividades y contenidos de la asignatura.',
+        },
+        {
+          id: 'qa6',
+          question: 'La carga de trabajo que comprende esta asignatura es adecuada para el número de créditos que tiene asignados.',
+        },
+        {
+          id: 'qa7',
+          question: 'Los conocimientos adquiridos en esta asignatura son importantes para mi actividad profesional.',
+        },
+        {
+          id: 'qa8',
+          question: 'En general, estoy satisfecho con el desarrollo de la asignatura.',
+        },
+        {
+          id: 'qp1',
+          question: 'El profesor cumple con su horario de clase establecido.',
+        },
+        // FIXME: Faltan preguntas:
+        // http://www.upm.es/sfs/Rectorado/Vicerrectorado%20de%20Ordenacion%20Academica%20y%20Planificacion%20Estrategica/Compromiso%20con%20la%20Calidad/Programas/Docentia/Normativa_DOCENTIA-UPM%202.0_%20CG_26_09_19.pdf
+        // pagina 83
+      ]
+    },
+
+    async submitSurvey(surveyData: any) {
+      // FIXME: We need to properly type survey data here
+      console.log(surveyData)
+    }
   }
+
+  return client
 }
 
 type UniAPIClient = ReturnType<typeof createUniAPIClient>
 
-export default createUniAPIClient()
-export { createUniAPIClient }
+function addRandomDelayToCalls(client: UniAPIClient): UniAPIClient {
+  return new Proxy<UniAPIClient>(client, {
+    get(target, prop, receiver) {
+      const fn = (target as any)?.[prop]
+
+      if (typeof fn === 'function') {
+        const delayWrapper = (...args: any[]) => {
+          const returnValue = fn(...args)
+          if (returnValue instanceof Promise) {
+            return returnValue
+              .then(result => new Promise(resolve => setTimeout(resolve, Math.random() * 1000, result)))
+              .catch(err => new Promise((_, reject) => setTimeout(reject, Math.random() * 1000, err)))
+          }
+          return returnValue
+        }
+
+        return delayWrapper
+      }
+
+      return Reflect.get(target, prop, receiver)
+    }
+  })
+}
+
+const defaultClient = addRandomDelayToCalls(createUniAPIClient())
+export default defaultClient
+export { createUniAPIClient, addRandomDelayToCalls }
 export type { 
   Course,
   Professor,
+  ProfessorTrait,
   Profile,
+  SubjectRating,
+  SurveyQuestion,
   UniAPIClient,
 }

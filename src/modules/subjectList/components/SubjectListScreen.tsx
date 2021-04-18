@@ -1,8 +1,18 @@
 import React from 'react'
-import SubjectList from './SubjectList';
+import { useNavigation } from '@react-navigation/core'
+import * as S from './SubjectListScreen.styles'
 
 function SubjectListScreen() {
-  return <SubjectList />
+  const { navigate } = useNavigation()
+
+  return (
+    <S.Container>
+      <S.Header />
+      <S.List
+        onSubjectPress={subject => navigate('SubjectSurvey', { subjectId: subject.id })}
+      />
+    </S.Container>
+  )
 }
 
 export { SubjectListScreen }

@@ -1,42 +1,74 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { StateS as SubjectSurveyState  } from './reducer'
+import type { State } from 'edoc/store'
 
-type StateS = { subjectSurvey: SubjectSurveyState }
+const subjectSurveyStateSelector = (state: State) => state.subjectSurvey
 
-const professorListStateSelector = (state: StateS) => state.subjectSurvey
-
-const isLoadingProfessorListSelector =  createSelector(
-  professorListStateSelector,
+const isLoadingSubjectSurveyDataSelector = createSelector(
+  subjectSurveyStateSelector,
   state => state.isLoading,
 )
-const professorListSelector =  createSelector(
-  professorListStateSelector,
-  state => state.professors,
-)
 
-const hasProfessorListErrorSelector =  createSelector(
-  professorListStateSelector,
+const hasSubjectSurveyDataErrorSelector = createSelector(
+  subjectSurveyStateSelector,
   state => Boolean(state.error),
 )
 
-const professorListErrorSelector =  createSelector(
-  professorListStateSelector,
-  state => state.error,
+
+const subjectSurveyProfessorsSelector = createSelector(
+  subjectSurveyStateSelector,
+  state => state.professors,
 )
 
-const professorListHookSelector = createSelector(
-  isLoadingProfessorListSelector,
-  professorListSelector,
-  professorListErrorSelector,
-  (loading, professor, error) =>
-    [loading, professor, error] as [typeof loading, typeof professor, typeof error],
+const subjectSurveySubjectSelector = createSelector(
+  subjectSurveyStateSelector,
+  state => state.subject!,
+)
+
+const subjectSurveyQuestionsSelector = createSelector(
+  subjectSurveyStateSelector,
+  state => state.questions,
+)
+
+const subjectSurveyQuestionsAnswersSelector = createSelector(
+  subjectSurveyStateSelector,
+  state => state.alumniAnswers,
+)
+
+const subjectSurveyAvailableProfessorTraitsSelector = createSelector(
+  subjectSurveyStateSelector,
+  state => state.professorTraits,
+)
+
+const subjectSurveySelectedProfessorTraitsSelector = createSelector(
+  subjectSurveyStateSelector,
+  state => state.alumniProfessorTraits,
+)
+
+const subjectSurveyCommentsSelector = createSelector(
+  subjectSurveyStateSelector,
+  state => state.alumniComments,
+)
+
+const subjectSurveyFilledDataSelector = createSelector(
+  subjectSurveySubjectSelector,
+  subjectSurveyProfessorsSelector,
+  subjectSurveyQuestionsAnswersSelector,
+  subjectSurveySelectedProfessorTraitsSelector,
+  subjectSurveyCommentsSelector,
+  (subject, professor, answers, traits, comments) =>
+    ({ subject, professor, answers, traits, comments })
 )
 
 export {
-  professorListStateSelector,
-  isLoadingProfessorListSelector,
-  professorListSelector,
-  hasProfessorListErrorSelector,
-  professorListErrorSelector,
-  professorListHookSelector,
+  subjectSurveyStateSelector,
+  isLoadingSubjectSurveyDataSelector,
+  subjectSurveyQuestionsSelector,
+  hasSubjectSurveyDataErrorSelector,
+  subjectSurveyProfessorsSelector,
+  subjectSurveySubjectSelector,
+  subjectSurveyQuestionsAnswersSelector,
+  subjectSurveyAvailableProfessorTraitsSelector,
+  subjectSurveySelectedProfessorTraitsSelector,
+  subjectSurveyCommentsSelector,
+  subjectSurveyFilledDataSelector,
 }

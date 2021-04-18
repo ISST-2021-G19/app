@@ -24,6 +24,7 @@ export const Title = styled(Text)`
 export const ChildrenContainer = styled.View`
   flex: 1;
   overflow: scroll;
+  margin-bottom: 16px;
 `
 
 export const NavigationButtonsContainer = styled.View`

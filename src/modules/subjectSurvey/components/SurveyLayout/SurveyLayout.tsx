@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core'
 import React, { ReactNode } from 'react'
 import { ViewProps } from 'react-native'
 import * as S from './SurveyLayout.styles'
@@ -29,10 +30,13 @@ function SurveyLayout(props: SurveyLayoutProps) {
     onNextButtonPress,
     ...otherProps
   } = props
-
+  const { goBack } = useNavigation()
+  const handleBackButtonPress = () => {
+    goBack()
+  }
   return (
     <S.Container {...otherProps}>
-      <S.ProgressBar progress={props.progress} />
+      <S.ProgressBar progress={progress} />
       <S.TitleContainer>
         {typeof title === 'string'
           ? <S.Title>{title}</S.Title>
@@ -43,16 +47,16 @@ function SurveyLayout(props: SurveyLayoutProps) {
       </S.ChildrenContainer>
       <S.NavigationButtonsContainer>
         <S.BackButton
-          disabled={props.disableBackButton}
-          onPress={props.onBackButtonPress}
+          disabled={disableBackButton}
+          onPress={onBackButtonPress ?? handleBackButtonPress}
         >
-          {props.backButtonChildren ?? 'Back' }
+          {backButtonChildren ?? 'Back' }
         </S.BackButton>
         <S.NextButton
-          disabled={props.disableNextButton}
-          onPress={props.onNextButtonPress}
+          disabled={disableNextButton}
+          onPress={onNextButtonPress}
         >
-          {props.nextButtonChildren ?? 'Next' }
+          {nextButtonChildren ?? 'Next' }
         </S.NextButton>
       </S.NavigationButtonsContainer>
     </S.Container>

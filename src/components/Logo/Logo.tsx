@@ -8,13 +8,7 @@ export interface LogoProps extends ViewProps {
 export function Logo(props: LogoProps) {
   return (
     <S.Container {...props}>
-      <S.eDocImage style={{ width: 150, height: 100 }} />
-      <S.Separator />
-      <S.UniLogoContainer>
-        <S.UniLogoImage style={{ width: 120, height: 50 }} /> 
-
-      </S.UniLogoContainer>
-      
+      <S.eDocImage style={{ width: '100%', height: '100%' }} />
     </S.Container>
   )
 }

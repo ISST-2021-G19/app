@@ -1,8 +1,11 @@
 import React from 'react'
-import SubjectSurvey from './SubjectSurvey';
+import { SubjectSurveyDataProvider } from './SubjectSurveyDataProvider';
+import { SurveyNavigator } from './SurveyNavigator';
 
-function SubjectSurveyScreen() {
-  return <SubjectSurvey />
+export function SubjectSurveyScreen() {
+  return (
+    <SubjectSurveyDataProvider>
+      <SurveyNavigator />
+    </SubjectSurveyDataProvider>
+  )
 }
-
-export { SubjectSurveyScreen }
