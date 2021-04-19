@@ -50,13 +50,13 @@ function SurveyLayout(props: SurveyLayoutProps) {
           disabled={disableBackButton}
           onPress={onBackButtonPress ?? handleBackButtonPress}
         >
-          {backButtonChildren ?? 'Back' }
+          {backButtonChildren ?? 'Anterior' }
         </S.BackButton>
         <S.NextButton
           disabled={disableNextButton}
           onPress={onNextButtonPress}
         >
-          {nextButtonChildren ?? 'Next' }
+          {nextButtonChildren ?? 'Siguiente' }
         </S.NextButton>
       </S.NavigationButtonsContainer>
     </S.Container>
