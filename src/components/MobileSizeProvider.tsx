@@ -14,8 +14,9 @@ const Container = styled.View`
 const App = styled.View`
   flex: 1;
   
-  min-width: 320px;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  max-width: 320px;
   max-height: 560px;
 
   justify-self: stretch;
