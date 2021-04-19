@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { Professor, Course, SubjectRating, ProfessorTrait, SurveyQuestion } from 'edoc/lib/UniApi'
+import { Professor, Course, SubjectRating, ProfessorTrait, SurveyQuestion } from 'edoc/lib/UniAPI'
 import * as A from './actions'
 
 interface State {

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import uniApi, { Profile } from 'edoc/lib/UniApi'
+import uniApi, { Profile } from 'edoc/lib/UniAPI'
 
 interface LoginThunkArg {
   email: string

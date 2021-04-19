@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { Profile } from 'edoc/lib/UniApi'
+import { Profile } from 'edoc/lib/UniAPI'
 import { login } from './actions'
 
 interface State {

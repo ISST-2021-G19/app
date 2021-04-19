@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Pressable, ViewProps } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
-import { Professor } from 'edoc/lib/UniApi'
+import { Professor } from 'edoc/lib/UniAPI'
 import { selectProfessor }  from '../../actions'
 import { subjectSurveyProfessorsSelector }  from '../../selectors'
 import * as S from './ProfessorList.styles'

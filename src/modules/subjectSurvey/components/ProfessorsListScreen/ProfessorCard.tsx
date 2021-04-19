@@ -1,6 +1,6 @@
 import React from 'react'
 import { ViewProps } from 'react-native'
-import { Professor      } from 'edoc/lib/UniApi'
+import { Professor      } from 'edoc/lib/UniAPI'
 import * as S from './ProfessorCard.styles'
 
 export interface ProfessorCardProps extends ViewProps {

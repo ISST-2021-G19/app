@@ -5,7 +5,7 @@ import uniApi, {
   ProfessorTrait,
   SubjectRating,
   SurveyQuestion,
-}  from 'edoc/lib/UniApi'
+}  from 'edoc/lib/UniAPI'
 import type { State }  from 'edoc/store'
 import { subjectSurveyFilledDataSelector } from './selectors'
 

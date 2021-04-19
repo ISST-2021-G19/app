@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ActivityIndicator, Pressable,ViewProps } from 'react-native'
-import { Course } from 'edoc/lib/UniApi'
+import { Course } from 'edoc/lib/UniAPI'
 import { useCourseList } from '../hooks'
 import * as S from './SubjectList.styles'
 

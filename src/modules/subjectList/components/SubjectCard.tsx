@@ -1,6 +1,6 @@
 import React from 'react'
 import { ViewProps } from 'react-native'
-import { Course } from 'edoc/lib/UniApi'
+import { Course } from 'edoc/lib/UniAPI'
 import * as S from './SubjectCard.styles'
 
 interface SubjectCardProps extends ViewProps {

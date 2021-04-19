@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import uniApi, { Course } from 'edoc/lib/UniApi'
+import uniApi, { Course } from 'edoc/lib/UniAPI'
 
 const fetchCourses = createAsyncThunk<Course[]>(
   'subjectList/fetchCourses',

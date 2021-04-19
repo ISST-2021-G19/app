@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { Course } from 'edoc/lib/UniApi'
+import { Course } from 'edoc/lib/UniAPI'
 import { fetchCourses } from './actions'
 
 interface State {
