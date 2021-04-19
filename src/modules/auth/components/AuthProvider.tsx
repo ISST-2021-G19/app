@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
-import { ActivityIndicator } from 'react-native'
 import { useSelector } from 'react-redux'
+import { ActivityIndicator } from 'edoc/components'
 import { useAuthenticatedUser } from '../hooks'
 import { isInitialLoadDoneSelector } from '../selectors'
 import LoginScreen from './LoginScreen'

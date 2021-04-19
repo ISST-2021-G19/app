@@ -1,1 +1,0 @@
-export { SubjectSurveyTraitsScreen } from './components/SubjectSurveyTraitsScreen'

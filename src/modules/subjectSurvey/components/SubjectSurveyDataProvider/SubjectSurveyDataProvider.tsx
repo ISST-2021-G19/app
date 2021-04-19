@@ -1,6 +1,6 @@
-import React, { ReactNode, useEffect, useState } from 'react'
-import { ActivityIndicator } from 'react-native';
+import React, { ReactNode, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { ActivityIndicator } from 'edoc/components'
 import { fetchSubjectSurveyData } from '../../actions';
 import { hasSubjectSurveyDataErrorSelector, isLoadingSubjectSurveyDataSelector } from '../../selectors';
 import { useSurveyRouteParams } from './useSurveyRouteParams';

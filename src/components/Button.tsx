@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import styled, { css } from 'styled-components/native'
-
 import { ActivityIndicator, PressableProps } from 'react-native'
+import styled, { css } from 'styled-components/native'
+import { Text } from './Text'
 
 const StyledPressable = styled.Pressable`
   background-color: #1f82c0;
@@ -11,7 +11,7 @@ const StyledPressable = styled.Pressable`
   ${props => props.disabled && css`opacity: 0.38;`};
 `
 
-const ButtonText = styled.Text`
+const ButtonText = styled(Text)`
   color: white;
 `
 

@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import { Text } from 'edoc/components'
 import { ProfessorList } from './ProfessorList'
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   padding: 16px;
 `
 

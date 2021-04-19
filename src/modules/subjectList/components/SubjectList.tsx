@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { ActivityIndicator, Pressable,ViewProps } from 'react-native'
+import { Pressable, ViewProps } from 'react-native'
+import { ActivityIndicator } from 'edoc/components'
 import { Course } from 'edoc/lib/UniAPI'
 import { useCourseList } from '../hooks'
 import * as S from './SubjectList.styles'
@@ -23,7 +24,7 @@ export function SubjectList(props: SubjectListProps) {
         onChangeText={setSearch}
       />
       {loading
-        ? <ActivityIndicator color="red" />
+        ? <ActivityIndicator />
         : filteredCourses.map(course => (
           <Pressable
             key={course.code}

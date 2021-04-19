@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/core'
 import * as S from './SubjectListScreen.styles'
+import { ScrollView } from 'react-native'
 
 function SubjectListScreen() {
   const { navigate } = useNavigation()

@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import { Header as BaseHeader } from './Header'
 import { SubjectList } from './SubjectList';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   padding: 16px;
 `
 

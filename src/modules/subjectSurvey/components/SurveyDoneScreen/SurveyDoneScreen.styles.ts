@@ -10,10 +10,17 @@ export const Container = styled.View`
 export const Logo = styled(BaseLogo)`
   height: 100px;
   width: 100px;
+  margin-bottom: 16px;
 `
 
-export const SubjectName = styled(Text)``
+export const SubjectName = styled(Text)`
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+`
 
-export const Description = styled(Text)``
+export const Description = styled(Text)`
+  margin-bottom: 16px;
+`
 
 export const DoneButton = styled(Button)``

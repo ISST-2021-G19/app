@@ -9,18 +9,3 @@ export const eDocImage = styled.Image.attrs({
   source: require('./eDoc.png'),
   resizeMode: 'contain',
 })``
-
-export const Separator = styled.View`
-  background-color: #555;
-  width: 1px;
-  height: 100%;
-  margin-left: 16px;
-  margin-right: 16px;
-`
-
-export const UniLogoContainer = styled.View``
-
-export const UniLogoImage = styled.Image.attrs({
-  source: require('./upm_logo.png'),
-  resizeMode: 'contain',
-})``
