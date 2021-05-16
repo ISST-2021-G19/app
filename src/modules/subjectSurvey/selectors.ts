@@ -49,14 +49,25 @@ const subjectSurveyCommentsSelector = createSelector(
   state => state.alumniComments,
 )
 
+const subjectSurveyProfessorSelector = createSelector(
+  subjectSurveyStateSelector,
+  state => state.professor,
+)
+
 const subjectSurveyFilledDataSelector = createSelector(
   subjectSurveySubjectSelector,
-  subjectSurveyProfessorsSelector,
+  subjectSurveyProfessorSelector,
   subjectSurveyQuestionsAnswersSelector,
   subjectSurveySelectedProfessorTraitsSelector,
   subjectSurveyCommentsSelector,
   (subject, professor, answers, traits, comments) =>
-    ({ subject, professor, answers, traits, comments })
+    ({
+      subjectId: subject.id,
+      professor: professor?.code,
+      answers,
+      traits,
+      comments,
+     })
 )
 
 export {
